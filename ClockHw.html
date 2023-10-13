@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="./ClockStyle.css" />
+</head>
+
+<body>
+  <div class="clock">
+    <div class="boxhh">
+      <div id="hr">00</div>
+      <svg style="--clr: #ff1400">
+        <circle cx="120" cy="120" r="120" id="hh"></circle>
+      </svg>
+    </div>
+    <div class="boxmm">
+      <!-- <div class="dots01">:</div> -->
+      <div id="mn">00</div>
+      <svg style="--clr: #fff51b">
+        <circle cx="120" cy="120" r="120" id="mm"></circle>
+      </svg>
+    </div>
+    <div class="boxss">
+      <!-- <div class="dots02">:</div> -->
+      <div id="se">00</div>
+      <svg style="--clr: #47fcf9">
+        <circle cx="120" cy="120" r="120" id="ss"></circle>
+      </svg>
+    </div>
+  </div>
+
+  <script>
+    let cc = document.getElementsByClassName('clock');
+    let bh = document.getElementsByClassName('boxhh');
+    let bm = document.getElementsByClassName('boxmm');
+    let bs = document.getElementsByClassName('boxss');
+    let hh = document.getElementById('hh');
+    let mm = document.getElementById('mm');
+    let ss = document.getElementById('ss');
+
+    setInterval(() => {
+      let h = new Date().getHours();
+      let m = new Date().getMinutes();
+      let s = new Date().getSeconds();
+
+      hr.innerHTML = h.toString().padStart(2, 0);
+      mn.innerHTML = m.toString().padStart(2, 0);
+      se.innerHTML = s.toString().padStart(2, 0);
+      hh.style.strokeDashoffset = 760 - (760 * h) / 12;
+      mm.style.strokeDashoffset = 760 - (760 * m) / 60;
+      ss.style.strokeDashoffset = 760 - (760 * s) / 60;
+    });
+  </script>
+</body>
+
+</html>

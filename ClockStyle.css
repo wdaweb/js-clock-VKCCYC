@@ -1,0 +1,199 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	min-height: 100vh;
+	overflow: hidden;
+	background: url(./cyberpunk-5135622_1280.jpg) no-repeat fixed;
+	background-size: cover;
+	animation: bd 15s ease-in-out infinite;
+}
+
+.clock {
+	z-index: 2;
+}
+
+.clock svg {
+	position: relative;
+	transform: rotate(270deg);
+	width: 250px;
+	height: 250px;
+	z-index: -5;
+	top: -80.5%;
+	left: 32%;
+	/* transform: translate(-20.5%, -64.5%); */
+}
+
+.clock svg circle {
+	width: 100%;
+	height: 100%;
+	/* fill: transparent; */
+	stroke-width: 8;
+	stroke: var(--clr);
+	transform: translate(5px, 5px);
+	opacity: 0.8;
+	stroke-dasharray: 760;
+	stroke-dashoffset: 760;
+	filter: drop-shadow(0 0 5px rgba(200, 0, 0, 0.5)) drop-shadow(0 0 8px rgba(255, 0, 0, 0.5));
+}
+
+.boxhh {
+	min-width: 200px;
+	height: 200px;
+	position: absolute;
+	top: 50%;
+	left: 15%;
+	transform: translate(-50%, -50%);
+}
+
+.boxmm {
+	/* border: 1px solid black; */
+	/* border-radius: 50%; */
+	min-width: 200px;
+	height: 200px;
+	position: absolute;
+	top: 50%;
+	left: 45%;
+	transform: translate(-50%, -50%);
+}
+
+.boxss {
+	/* border: 5px dashed rgb(166, 218, 237, 0.5); */
+	/* border-radius: 50%; */
+	min-width: 200px;
+	height: 200px;
+	position: absolute;
+	top: 50%;
+	left: 75%;
+	transform: translate(-50%, -50%);
+	/* transform: rotate(270deg); */
+}
+
+#hr {
+	text-shadow: 0 0 3vw #f4bd0a;
+	position: relative;
+	font-size: 120px;
+	text-align: center;
+	top: 30px;
+	animation: hr 2s ease-in-out infinite;
+	left: 30%;
+}
+
+#hr::after {
+	content: 'hour';
+	position: absolute;
+	top: 200px;
+	left: 25px;
+	font-size: 100px;
+	font-style: italic;
+}
+#mn {
+	text-shadow: 0 0 3vw #f4bd0a;
+	position: relative;
+	font-size: 120px;
+	text-align: center;
+	top: 30px;
+	left: 30%;
+	animation: mn 2s ease-in-out infinite;
+}
+#mn::after {
+	content: 'min';
+	position: absolute;
+	top: 200px;
+	left: 50px;
+	font-size: 100px;
+	font-style: italic;
+}
+#se {
+	text-shadow: 0 0 3vw #f4bd0a;
+	position: relative;
+	font-size: 120px;
+	text-align: center;
+	top: 30px;
+	left: 30%;
+	animation: se 2s ease-in-out infinite;
+}
+#se::after {
+	content: 'sec';
+	position: absolute;
+	top: 200px;
+	left: 60px;
+	font-size: 100px;
+	font-style: oblique;
+}
+@keyframes bd {
+	0% {
+		background: url(./cyberpunk-5135622_1280.jpg) no-repeat;
+		background-size: cover;
+	}
+
+	85% {
+		background: url(./cyberpunk-5135622_1280\(01\).png) no-repeat;
+		background-size: cover;
+		background-position: bottom;
+	}
+	100% {
+		background: url(./cyberpunk-5135622_1280\(01\).png) no-repeat;
+		background-size: cover;
+		background-position: bottom;
+	}
+}
+@keyframes hr {
+	0%,
+	100% {
+		text-shadow: 0 0 1vw #fa1c16, 0 0 3vw #fa1c16, 0 0 10vw #fa1c16, 0 0 10vw #fa1c16, 0 0 0.4vw #fed128,
+			0.25vw 0.25vw 0.1vw #806914;
+		color: #fffc00;
+	}
+	50% {
+		text-shadow: 0 0 0.5vw #800e0b, 0 0 1.5vw #800e0b, 0 0 5vw #800e0b, 0 0 5vw #800e0b, 0 0 0.2vw #800e0b,
+			0.25vw 0.25vw 0.1vw #40340a;
+		color: #806914;
+	}
+}
+@keyframes mn {
+	0%,
+	100% {
+		text-shadow: 0 0 1vw #07f7af, 0 0 3vw #07f2c7, 0 0 10vw #0885f2, 0 0 10vw #0550f1, 0 0 0.4vw #8bfdfe,
+			0.25vw 0.25vw 0.1vw #147280;
+		color: #e0d304;
+	}
+	50% {
+		text-shadow: 0 0 0.5vw #024218, 0 0 1.5vw #024713, 0 0 5vw #023812, 0 0 5vw #012707, 0 0 0.2vw #022201,
+			0.25vw0.25vw 0.1vw #011a06;
+		color: #706a09;
+	}
+}
+
+@keyframes se {
+	0%,
+	100% {
+		text-shadow: 0 0 1vw #10ff4c, 0 0 3vw #1041ff, 0 0 10vw #1041ff, 0 0 10vw #1041ff, 0 0 0.4vw #8bfdfe,
+			0.25vw 0.25vw 0.1vw #147280;
+		color: #4d07ed;
+	}
+	50% {
+		text-shadow: 0 0 0.5vw #024218, 0 0 1.5vw #024713, 0 0 5vw #023812, 0 0 5vw #012707, 0 0 0.2vw #022201,
+			0.25vw 0.25vw 0.1vw #011a06;
+		color: #28047d;
+	}
+}
+
+/* .dots01 {
+  text-shadow: 0 0 3vw #f4bd0a;
+  position: absolute;
+  font-size: 25vh;
+  top: 47.5%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+}
+.dots02 {
+  text-shadow: 0 0 3vw #f4bd0a;
+  position: absolute;
+  font-size: 25vh;
+  top: 47.5%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+} */
