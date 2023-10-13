@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      width: 100vw;
+      background: url(./lost-places.jpg) no-repeat;
+      background-size: cover;
+      animation: bd 15s ease-in-out infinite;
+
+    }
+
+    /* #clock {
+      transform: rotate(10deg);
+    } */
+
+    #hclock {
+      width: 300px;
+      height: 300px;
+      border: 2px dashed lightblue;
+      /* background: lightblue; */
+      /* margin: auto; */
+      border-radius: 50%;
+      position: absolute;
+      /* 記得運算前面要空格 */
+      top: calc(25% - 150px);
+      left: calc(50% - 150px);
+
+    }
+
+    #mclock {
+      width: 300px;
+      height: 300px;
+      border: 2px dashed lightblue;
+      /* background: lightblue; */
+      /* margin: auto; */
+      border-radius: 50%;
+      position: absolute;
+      /* 記得運算前面要空格 */
+      top: calc(75% - 150px);
+      left: calc(25% - 150px);
+
+    }
+
+    #sclock {
+      width: 300px;
+      height: 300px;
+      /* background: lightblue; */
+      /* margin: auto; */
+      border-radius: 50%;
+      position: absolute;
+      /* 記得運算前面要空格 */
+      top: calc(75% - 150px);
+      left: calc(75% - 150px);
+      border: 2px dashed lightblue;
+    }
+
+    #hour {
+      width: 20%;
+      height: 10px;
+      /* background: aqua; */
+      position: absolute;
+      top: calc(50% - 5px);
+      left: 30%;
+      border-radius: 5px;
+      transform-origin: right center;
+
+    }
+
+    #hour::before {
+      content: " ";
+      width: 25px;
+      height: 25px;
+      background: rgb(255, 3, 3);
+      position: absolute;
+      top: calc(50% - 5px);
+      left: -150%;
+      border-radius: 50%;
+      transform-origin: right center;
+      animation: hrdot 2s ease-in-out infinite;
+    }
+
+
+
+    #minute {
+      width: 40%;
+      height: 10px;
+      /* background: maroon; */
+      position: absolute;
+      top: calc(50% - 5px);
+      left: 10%;
+      border-radius: 5px;
+      transform-origin: right center;
+
+    }
+
+    #minute::before {
+      content: " ";
+      width: 25px;
+      height: 25px;
+      background: rgb(0, 255, 55);
+      position: absolute;
+      top: calc(50% - 5px);
+      left: -25%;
+      border-radius: 50%;
+      transform-origin: right center;
+      animation: mndot 2s ease-in-out infinite;
+
+    }
+
+    #second {
+      width: 45%;
+      height: 4px;
+      /* background: navajowhite; */
+      position: absolute;
+      top: calc(50% - 2px);
+      left: 5%;
+      border-radius: 2px;
+      transform-origin: right center;
+
+    }
+
+    #second::before {
+      content: "";
+      width: 25px;
+      height: 25px;
+      background: rgb(2, 34, 34);
+      position: absolute;
+      top: calc(50% - 5px);
+      left: -10%;
+      border-radius: 50%;
+      transform-origin: right center;
+      animation: sedot 2s ease-in-out infinite;
+
+    }
+
+    #hr {
+      text-shadow: 0 0 3vw #f4bd0a;
+      position: relative;
+      font-size: 100px;
+      text-align: center;
+      top: 80px;
+      animation: hr 2s ease-in-out infinite;
+      left: 0;
+    }
+
+    #hr::after {
+      content: 'hour';
+      position: absolute;
+      top: 0;
+      left: 110%;
+      font-size: 100px;
+      font-style: italic;
+    }
+
+    #mn {
+      text-shadow: 0 0 3vw #f4bd0a;
+      position: relative;
+      font-size: 100px;
+      text-align: center;
+      top: 80px;
+      left: 0;
+      animation: mn 2s ease-in-out infinite;
+    }
+
+    #mn::after {
+      content: 'min';
+      position: absolute;
+      top: 0;
+      left: 110%;
+      font-size: 100px;
+      font-style: italic;
+    }
+
+    #se {
+      text-shadow: 0 0 3vw #f4bd0a;
+      position: relative;
+      font-size: 100px;
+      text-align: center;
+      top: 80px;
+      left: 0;
+      animation: se 2s ease-in-out infinite;
+    }
+
+    #se::after {
+      content: 'sec';
+      position: absolute;
+      top: 0;
+      left: 110%;
+      font-size: 100px;
+      font-style: oblique;
+    }
+
+    @keyframes bd {
+      0% {
+        background: url(./lost-places.jpg) no-repeat;
+        background-size: cover;
+      }
+
+      85% {
+        background: url(./lost-places.png) no-repeat;
+        background-size: cover;
+        background-position: bottom;
+      }
+
+      100% {
+        background: url(./lost-places.png) no-repeat;
+        background-size: cover;
+        background-position: bottom;
+      }
+    }
+
+    @keyframes hr {
+
+      0%,
+      100% {
+        text-shadow: 0 0 1vw #fa1c16, 0 0 3vw #fa1c16, 0 0 10vw #fa1c16, 0 0 10vw #fa1c16, 0 0 0.4vw #fed128,
+          0.25vw 0.25vw 0.1vw #806914;
+        color: #fffc00;
+      }
+
+      50% {
+        text-shadow: 0 0 0.5vw #800e0b, 0 0 1.5vw #800e0b, 0 0 5vw #800e0b, 0 0 5vw #800e0b, 0 0 0.2vw #800e0b,
+          0.25vw 0.25vw 0.1vw #40340a;
+        color: #806914;
+      }
+    }
+
+    @keyframes mn {
+
+      0%,
+      100% {
+        text-shadow: 0 0 1vw #07f7af, 0 0 3vw #07f2c7, 0 0 10vw #0885f2, 0 0 10vw #0550f1, 0 0 0.4vw #8bfdfe,
+          0.25vw 0.25vw 0.1vw #147280;
+        color: #e0d304;
+      }
+
+      50% {
+        text-shadow: 0 0 0.5vw #024218, 0 0 1.5vw #024713, 0 0 5vw #023812, 0 0 5vw #012707, 0 0 0.2vw #022201,
+          0.25vw0.25vw 0.1vw #011a06;
+        color: #706a09;
+      }
+    }
+
+    @keyframes se {
+
+      0%,
+      100% {
+        text-shadow: 0 0 1vw #10ff4c, 0 0 3vw #1041ff, 0 0 10vw #1041ff, 0 0 10vw #1041ff, 0 0 0.4vw #8bfdfe,
+          0.25vw 0.25vw 0.1vw #147280;
+        color: #4d07ed;
+      }
+
+      50% {
+        text-shadow: 0 0 0.5vw #024218, 0 0 1.5vw #024713, 0 0 5vw #023812, 0 0 5vw #012707, 0 0 0.2vw #022201,
+          0.25vw 0.25vw 0.1vw #011a06;
+        color: #28047d;
+
+      }
+    }
+
+    @keyframes hrdot {
+
+      0%,
+      100% {
+        background-color: rgb(255, 10, 10);
+      }
+
+      50% {
+        background-color: black;
+      }
+    }
+
+    @keyframes mndot {
+
+      0%,
+      100% {
+        background-color: yellow;
+      }
+
+      50% {
+        background-color: black;
+      }
+    }
+
+    @keyframes sedot {
+
+      0%,
+      100% {
+        background-color: #02d6f7;
+      }
+
+      50% {
+        background-color: black;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+  <div id="clock">
+
+    <div id="mclock">
+      <div id="minute"></div>
+      <div id="mn">00</div>
+    </div>
+    <div id="hclock">
+      <div id="hour"></div>
+      <div id="hr">00</div>
+    </div>
+    <div id="sclock">
+      <div id="second"></div>
+      <div id="se">00</div>
+    </div>
+  </div>
+  <script>
+    const elHour = document.getElementById('hour')
+    const elMinute = document.getElementById('minute')
+    const elSecond = document.getElementById('second')
+
+    const hr = document.getElementById('hr')
+    const mn = document.getElementById('mn')
+    const se = document.getElementById('se')
+
+    // ----  以下是函式 會重複跑動    ------------------------------------------------------------------------------------------
+    const clock = () => {
+      const date = new Date()
+      const hour = date.getHours()
+      const minute = date.getMinutes()
+      const second = date.getSeconds()
+      elHour.style.transform = `rotate(${hour * 30 + 90}deg)`
+      elMinute.style.transform = `rotate(${minute * 6 + 90}deg)`
+      elSecond.style.transform = `rotate(${second * 6 + 90}deg)`
+
+      hr.innerText = `${hour.toString().padStart(2, '0')}`
+      mn.innerText = `${minute.toString().padStart(2, '0')}`
+      se.innerText = `${second.toString().padStart(2, '0')}`
+    }
+    setInterval(clock, 1000)
+    clock()
+  </script>
+</body>
+
+</html>
